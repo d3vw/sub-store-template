@@ -86,6 +86,12 @@
         "outbound": "direct"
       },
       {
+        "port": [
+          22
+        ],
+        "outbound": "direct"
+      },
+      {
         "clash_mode": "Global",
         "action": "route",
         "outbound": "GLOBAL"
