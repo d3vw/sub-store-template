@@ -345,7 +345,8 @@
         "proxy",
         "jp",
         "us"
-      ]
+      ],
+      "default": "proxy"
     },
     {
       "tag": "apple",
