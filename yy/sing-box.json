@@ -120,6 +120,11 @@
         "outbound": "youtube"
       },
       {
+        "rule_set": "claude_domain",
+        "action": "route",
+        "outbound": "claude"
+      },
+      {
         "rule_set": "ai_domain",
         "action": "route",
         "outbound": "ai"
@@ -194,6 +199,13 @@
         "type": "remote",
         "format": "binary",
         "url": "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo-lite/geosite/apple.srs",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "claude_domain",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo-lite/geosite/anthorpic.srs",
         "download_detour": "direct"
       },
       {
@@ -325,6 +337,15 @@
         "all-auto"
       ],
       "default": "proxy"
+    },
+    {
+      "tag": "claude",
+      "type": "selector",
+      "outbounds": [
+        "proxy",
+        "jp",
+        "us"
+      ]
     },
     {
       "tag": "apple",
