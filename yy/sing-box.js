@@ -16,6 +16,10 @@ let proxies = await produceArtifact({
 config.outbounds.push(...proxies)
 
 config.outbounds.map(i => {
+  // Populate feature selectors with proxies
+  if (['proxy','google','claude','netflix','youtube','ai'].includes(i.tag)) {
+    i.outbounds.push(...getTags(proxies, /feat/i))
+  }
   if (['all', 'all-auto'].includes(i.tag)) {
     i.outbounds.push(...getTags(proxies))
   }
