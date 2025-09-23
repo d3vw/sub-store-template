@@ -115,6 +115,11 @@
         "outbound": "youtube"
       },
       {
+        "rule_set": "spotify_domain",
+        "action": "route",
+        "outbound": "spotify"
+      },
+      {
         "rule_set": "claude_domain",
         "action": "route",
         "outbound": "claude"
@@ -279,6 +284,13 @@
         "format": "binary",
         "url": "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo-lite/geosite/youtube.srs",
         "download_detour": "direct"
+      },
+      {
+        "tag": "spotify_domain",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo-lite/geosite/spotify.srs",
+        "download_detour": "direct"
       }
     ],
     "final": "final",
@@ -391,6 +403,25 @@
     },
     {
       "tag": "youtube",
+      "type": "selector",
+      "outbounds": [
+        "proxy",
+        "direct",
+        "hk",
+        "hk-auto",
+        "jp",
+        "jp-auto",
+        "sg",
+        "sg-auto",
+        "us",
+        "us-auto",
+        "all",
+        "all-auto"
+      ],
+      "default": "proxy"
+    },
+    {
+      "tag": "spotify",
       "type": "selector",
       "outbounds": [
         "proxy",
