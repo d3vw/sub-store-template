@@ -111,7 +111,7 @@
       {
         "rule_set": "nodeseek_domain",
         "action": "route",
-        "outbound": "ai"
+        "outbound": "youtube"
       },
       {
         "rule_set": "claude_domain",
