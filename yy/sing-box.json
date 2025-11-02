@@ -109,6 +109,11 @@
         "outbound": "youtube"
       },
       {
+        "rule_set": "nodeseek_domain",
+        "action": "route",
+        "outbound": "ai"
+      },
+      {
         "rule_set": "claude_domain",
         "action": "route",
         "outbound": "claude"
@@ -272,6 +277,13 @@
         "type": "remote",
         "format": "binary",
         "url": "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo-lite/geosite/youtube.srs",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "nodeseek_domain",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo/geosite/nodeseek.srs",
         "download_detour": "direct"
       }
     ],
