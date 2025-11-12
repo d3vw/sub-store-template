@@ -217,6 +217,17 @@
         "download_detour": "direct"
       },
       {
+        "tag": "cn_custom_domain",
+        "type": "inline",
+        "rules": [
+          {
+            "domain_suffix": [
+              "youpin898.com"
+            ]
+          }
+        ]
+      },
+      {
         "tag": "google_ip",
         "type": "remote",
         "format": "binary",
