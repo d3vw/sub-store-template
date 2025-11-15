@@ -242,12 +242,12 @@
         "rules": [
           {
             "domain_suffix": [
-              "doubleclick.net",
               "ads.youtube.com",
-              "googleadservices.com",
-              "googlesyndication.com",
-              "adservice.google.com",
-              "youtube.com/get_midroll_info"
+              "googleads.g.doubleclick.net",
+              "ad.doubleclick.net",
+              "pagead2.googlesyndication.com",
+              "youtubei.googleapis.com",
+              "s.youtube.com"
             ]
           }
         ]
