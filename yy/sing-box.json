@@ -109,6 +109,11 @@
         "outbound": "all"
       },
       {
+        "rule_set": "youtube_stream",
+        "action": "route",
+        "outbound": "hk"
+      },
+      {
         "rule_set": "youtube_domain",
         "action": "route",
         "outbound": "youtube"
@@ -249,6 +254,17 @@
               "youtubei.googleapis.com",
               "www.youtube.com",
               "s.youtube.com"
+            ]
+          }
+        ]
+      },
+      {
+        "tag": "youtube_stream",
+        "type": "inline",
+        "rules": [
+          {
+            "domain_suffix": [
+              "googlevideo.com"
             ]
           }
         ]
