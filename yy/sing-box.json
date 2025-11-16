@@ -104,11 +104,6 @@
         "outbound": "netflix"
       },
       {
-        "rule_set": "youtube_ad",
-        "action": "route",
-        "outbound": "all"
-      },
-      {
         "rule_set": "youtube_domain",
         "action": "route",
         "outbound": "youtube"
@@ -232,22 +227,6 @@
               "uu898.cc",
               "youpinimg.com",
               "uu661.com"
-            ]
-          }
-        ]
-      },
-      {
-        "tag": "youtube_ad",
-        "type": "inline",
-        "rules": [
-          {
-            "domain_suffix": [
-              "doubleclick.net",
-              "ads.youtube.com",
-              "googleadservices.com",
-              "googlesyndication.com",
-              "adservice.google.com",
-              "youtube.com/get_midroll_info"
             ]
           }
         ]
