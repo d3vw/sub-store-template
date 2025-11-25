@@ -96,6 +96,12 @@
         "outbound": "direct"
       },
       {
+        "process_path": [
+          "/usr/local/bin/naive"
+        ],
+        "outbound": "direct"
+      },
+      {
         "rule_set": [
           "netflix_ip",
           "netflix_domain"
