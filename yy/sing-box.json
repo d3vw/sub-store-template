@@ -102,6 +102,12 @@
         "outbound": "direct"
       },
       {
+        "process_name": [
+          "naive"
+        ],
+        "outbound": "direct"
+      },
+      {
         "rule_set": [
           "netflix_ip",
           "netflix_domain"
