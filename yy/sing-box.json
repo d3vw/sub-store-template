@@ -97,7 +97,8 @@
       },
       {
         "process_path": [
-          "/usr/local/bin/naive"
+          "/usr/local/bin/naive",
+          "/usr/bin/naiveproxy"
         ],
         "outbound": "direct"
       },
