@@ -47,12 +47,6 @@
         "rule_set": "cn_domain",
         "action": "route",
         "server": "ali"
-      },
-      {
-        "rule_set": [
-          "geosite-netflix"
-        ],
-        "server": "google"
       }
     ],
     "final": "google",
