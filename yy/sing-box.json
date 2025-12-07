@@ -109,6 +109,11 @@
         "outbound": "direct"
       },
       {
+        "port": 22,
+        "action": "route",
+        "outbound": "telegram"
+      },
+      {
         "rule_set": [
           "netflix_ip",
           "netflix_domain"
