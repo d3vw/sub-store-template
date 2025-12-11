@@ -63,6 +63,7 @@
           "http",
           "tls",
           "quic",
+          "ssh",
           "dns"
         ],
         "timeout": "500ms"
@@ -94,6 +95,20 @@
         "clash_mode": "Direct",
         "action": "route",
         "outbound": "direct"
+      },
+      {
+        "network": [
+          "tcp"
+        ],
+        "protocol": [
+          "ssh"
+        ],
+        "process_name": [
+          "ssh",
+          "git"
+        ],
+        "action": "route",
+        "outbound": "youtube"
       },
       {
         "process_path": [
