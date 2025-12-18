@@ -618,8 +618,9 @@
       "listen_port": 7890
     },
     {
-      "type": "socks5",
+      "type": "socks",
       "tag": "socks5-in",
+      "version": "5",
       "listen": "::",
       "listen_port": 1080
     }
