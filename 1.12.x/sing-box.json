@@ -62,6 +62,7 @@
         "sniffer": [
           "http",
           "tls",
+          "ssh",
           "quic",
           "dns"
         ],
@@ -94,6 +95,12 @@
         "clash_mode": "Direct",
         "action": "route",
         "outbound": "direct"
+      },
+      {
+        "network": "tcp",
+        "protocol": "ssh",
+        "action": "route",
+        "outbound": "all"
       },
       {
         "rule_set": "bilibili_domain",
