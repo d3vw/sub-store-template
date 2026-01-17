@@ -151,8 +151,7 @@
       "type": "selector",
       "outbounds": [
         "direct"
-      ],
-      "default": "all"
+      ]
     },
     {
       "tag": "cn",
