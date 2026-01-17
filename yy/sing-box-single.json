@@ -152,7 +152,7 @@
       "outbounds": [
         "direct"
       ],
-      "default": "all-auto"
+      "default": "all"
     },
     {
       "tag": "cn",
