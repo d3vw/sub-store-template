@@ -147,29 +147,18 @@
   },
   "outbounds": [
     {
-      "tag": "all-auto",
-      "type": "urltest",
-      "outbounds": [],
-      "url": "https://www.gstatic.com/generate_204",
-      "interval": "1m",
-      "tolerance": 50
-    },
-    {
       "tag": "proxy",
       "type": "selector",
       "outbounds": [
         "direct"
-      ],
-      "default": "all-auto"
+      ]
     },
     {
       "tag": "cn",
       "type": "selector",
       "outbounds": [
         "proxy",
-        "direct",
-        "all",
-        "all-auto"
+        "direct"
       ],
       "default": "direct"
     },
@@ -178,25 +167,16 @@
       "type": "selector",
       "outbounds": [
         "proxy",
-        "direct",
-        "all",
-        "all-auto"
+        "direct"
       ],
       "default": "proxy"
-    },
-    {
-      "tag": "all",
-      "type": "selector",
-      "outbounds": []
     },
     {
       "tag": "GLOBAL",
       "type": "selector",
       "outbounds": [
         "direct",
-        "proxy",
-        "all",
-        "all-auto"
+        "proxy"
       ],
       "default": "direct"
     },
