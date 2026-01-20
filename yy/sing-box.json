@@ -108,7 +108,7 @@
           "git"
         ],
         "action": "route",
-        "outbound": "youtube"
+        "outbound": "all"
       },
       {
         "inbound": "socks5-in",
