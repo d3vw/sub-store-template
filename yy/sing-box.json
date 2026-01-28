@@ -529,7 +529,9 @@
     {
       "tag": "all",
       "type": "selector",
-      "outbounds": []
+      "outbounds": [
+        "direct"
+      ]
     },
     {
       "tag": "hk-auto",
