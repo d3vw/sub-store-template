@@ -87,6 +87,13 @@
         "outbound": "direct"
       },
       {
+        "ip_cidr": [
+          "45.115.18.2"
+        ],
+        "action": "route",
+        "outbound": "direct"
+      },
+      {
         "clash_mode": "Global",
         "action": "route",
         "outbound": "GLOBAL"
