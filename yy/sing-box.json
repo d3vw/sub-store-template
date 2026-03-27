@@ -121,10 +121,6 @@
         "outbound": "all"
       },
       {
-        "inbound": "socks5-in",
-        "outbound": "all"
-      },
-      {
         "process_path": [
           "/usr/local/bin/naive",
           "/usr/bin/naiveproxy"
@@ -628,12 +624,6 @@
       "type": "mixed",
       "listen": "127.0.0.1",
       "listen_port": 7890
-    },
-    {
-      "type": "socks",
-      "tag": "socks5-in",
-      "listen": "::",
-      "listen_port": 2077
     }
   ],
   "experimental": {
