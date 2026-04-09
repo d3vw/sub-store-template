@@ -35,6 +35,15 @@
         "action": "reject"
       },
       {
+        "domain_suffix": [
+          "cloudflare.com",
+          "cloudflarestream.com",
+          "cloudflarestorage.com"
+        ],
+        "action": "route",
+        "server": "google"
+      },
+      {
         "query_type": [
           "A",
           "AAAA"
