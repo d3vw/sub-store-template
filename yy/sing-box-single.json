@@ -123,22 +123,19 @@
         "tag": "cn_ip",
         "type": "remote",
         "format": "binary",
-        "url": "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo/geoip/cn.srs",
-        "download_detour": "direct"
+        "url": "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo/geoip/cn.srs"
       },
       {
         "tag": "cn_domain",
         "type": "remote",
         "format": "binary",
-        "url": "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo-lite/geosite/cn.srs",
-        "download_detour": "direct"
+        "url": "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo-lite/geosite/cn.srs"
       },
       {
         "tag": "proxy_domain",
         "type": "remote",
         "format": "binary",
-        "url": "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo/geosite/geolocation-!cn.srs",
-        "download_detour": "direct"
+        "url": "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo/geosite/geolocation-!cn.srs"
       }
     ],
     "final": "final",
