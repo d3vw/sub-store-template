@@ -96,6 +96,11 @@
         "outbound": "direct"
       },
       {
+        "rule_set": "microsoft_domain",
+        "action": "route",
+        "outbound": "microsoft"
+      },
+      {
         "type": "logical",
         "mode": "and",
         "rules": [
@@ -132,6 +137,12 @@
         "url": "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo-lite/geosite/cn.srs"
       },
       {
+        "tag": "microsoft_domain",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo-lite/geosite/microsoft.srs"
+      },
+      {
         "tag": "proxy_domain",
         "type": "remote",
         "format": "binary",
@@ -157,6 +168,15 @@
         "direct"
       ],
       "default": "direct"
+    },
+    {
+      "tag": "microsoft",
+      "type": "selector",
+      "outbounds": [
+        "proxy",
+        "direct"
+      ],
+      "default": "proxy"
     },
     {
       "tag": "final",
