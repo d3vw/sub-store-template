@@ -15,8 +15,7 @@
       {
         "tag": "fakeip",
         "type": "fakeip",
-        "inet4_range": "198.18.0.0/15",
-        "inet6_range": "fc00::/18"
+        "inet4_range": "198.18.0.0/15"
       }
     ],
     "rules": [
@@ -44,10 +43,7 @@
         "server": "google"
       },
       {
-        "query_type": [
-          "A",
-          "AAAA"
-        ],
+        "query_type": "A",
         "action": "route",
         "server": "fakeip",
         "rewrite_ttl": 1
@@ -536,10 +532,7 @@
   "inbounds": [
     {
       "type": "tun",
-      "address": [
-        "172.19.0.0/30",
-        "fdfe:dcba:9876::0/126"
-      ],
+      "address": "172.19.0.0/30",
       "stack": "mixed",
       "auto_route": true,
       "platform": {
