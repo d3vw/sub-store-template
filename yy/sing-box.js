@@ -17,7 +17,7 @@ config.outbounds.push(...proxies)
 
 config.outbounds.map(i => {
   // Populate feature selectors with proxies
-  if (['proxy', 'google', 'claude', 'polomarket', 'youtube', 'ai'].includes(i.tag)) {
+  if (['proxy', 'google', 'claude', 'polymarket', 'youtube', 'ai'].includes(i.tag)) {
     i.outbounds.push(...getTags(proxies, /feat/i))
   }
   if (['all', 'all-auto'].includes(i.tag)) {
