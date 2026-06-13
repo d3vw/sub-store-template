@@ -133,6 +133,11 @@
         "outbound": "claude"
       },
       {
+        "rule_set": "polymarket_domain",
+        "action": "route",
+        "outbound": "polymarket"
+      },
+      {
         "rule_set": "ai_domain",
         "action": "route",
         "outbound": "ai"
@@ -220,6 +225,17 @@
               "uu898.cc",
               "youpinimg.com",
               "uu661.com"
+            ]
+          }
+        ]
+      },
+      {
+        "tag": "polymarket_domain",
+        "type": "inline",
+        "rules": [
+          {
+            "domain_suffix": [
+              "polymarket.com"
             ]
           }
         ]
@@ -321,6 +337,17 @@
         "proxy",
         "jp",
         "us"
+      ],
+      "default": "proxy"
+    },
+    {
+      "tag": "polymarket",
+      "type": "selector",
+      "outbounds": [
+        "proxy",
+        "us",
+        "us-auto",
+        "direct"
       ],
       "default": "proxy"
     },
