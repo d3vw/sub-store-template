@@ -593,6 +593,12 @@
     "level": "info",
     "timestamp": true
   },
+  "http_clients": [
+    {
+      "tag": "proxy_http",
+      "detour": "proxy"
+    }
+  ],
   "services": [
     {
       "type": "api",

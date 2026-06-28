@@ -236,6 +236,12 @@
       "store_fakeip": true
     }
   },
+  "http_clients": [
+    {
+      "tag": "proxy_http",
+      "detour": "proxy"
+    }
+  ],
   "log": {
     "disabled": false,
     "level": "info",
