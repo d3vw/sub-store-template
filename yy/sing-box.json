@@ -598,5 +598,20 @@
     "disabled": false,
     "level": "info",
     "timestamp": true
-  }
+  },
+  "services": [
+    {
+      "type": "api",
+      "secret": "abc",
+      "listen": "127.0.0.1",
+      "listen_port": 9999,
+      "dashboard": {
+        "enabled": true,
+        "path": "",
+        "download_url": "",
+        "http_client": "",
+        "update_interval": "1d"
+      }
+    }
+  ]
 }
