@@ -1,0 +1,560 @@
+{
+  "log": {
+    "level": "error",
+    "timestamp": true
+  },
+  "experimental": {
+    "cache_file": {
+      "enabled": true,
+      "store_fakeip": true,
+      "path": ".cache.db",
+      "cache_id": "cache_id"
+    },
+    "clash_api": {
+      "external_controller": "127.0.0.1:9090",
+      "external_ui": "ui",
+      "external_ui_download_url": "https://cfproxy.wukaige.com/https://github.com/MetaCubeX/Yacd-meta/archive/gh-pages.zip",
+      "external_ui_download_detour": "🚀 节点选择",
+      "default_mode": "rule"
+    }
+  },
+  "ntp": {
+    "enabled": true,
+    "server": "ntp.aliyun.com",
+    "server_port": 123,
+    "interval": "30m"
+  },
+  "dns": {
+    "servers": [
+      {
+        "tag": "dns_direct",
+        "type": "https",
+        "server": "223.5.5.5"
+      },
+      {
+        "tag": "dns_proxy",
+        "type": "https",
+        "server": "8.8.8.8",
+        "detour": "🚀 节点选择"
+      },
+      {
+        "tag": "fakeip",
+        "type": "fakeip",
+        "inet4_range": "198.18.0.0/15",
+        "inet6_range": "fc00::/18"
+      },
+      {
+        "type": "local",
+        "tag": "local",
+        "detour": "direct"
+      },
+      {
+        "tag": "hosts",
+        "type": "hosts",
+        "path": [
+          "/etc/hosts",
+          "$HOME/.hosts"
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "ip_accept_any": true,
+        "server": "hosts"
+      },
+      {
+        "clash_mode": "direct",
+        "server": "dns_direct"
+      },
+      {
+        "clash_mode": "global",
+        "server": "dns_proxy"
+      },
+      {
+        "rule_set": [
+          "geosite-anti-ad",
+          "geosite-adguard",
+          "geosite-category-ads-all"
+        ],
+        "action": "predefined",
+        "rcode": "REFUSED"
+      },
+      {
+        "rule_set": [
+          "geosite-geolocation-cn"
+        ],
+        "server": "dns_direct"
+      }
+    ],
+    "final": "dns_proxy",
+    "strategy": "ipv4_only",
+    "disable_expire": false,
+    "independent_cache": true,
+    "client_subnet": "223.5.5.0/24"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "utun",
+      "address": [
+        "172.18.0.1/30",
+        "fdfe:dcba:9876::1/126"
+      ],
+      "stack": "system",
+      "auto_route": true,
+      "strict_route": true,
+      "auto_redirect": true,
+      "endpoint_independent_nat": true,
+      "route_address": [
+        "0.0.0.0/1",
+        "128.0.0.0/1",
+        "::/1",
+        "8000::/1"
+      ],
+      "route_exclude_address": [
+        "192.168.0.0/16",
+        "fc00::/7"
+      ],
+      "route_exclude_address_set": [
+        "inline-direct-ip"
+      ]
+    },
+    {
+      "type": "mixed",
+      "tag": "mixed-in",
+      "listen": "::",
+      "listen_port": 7890,
+      "set_system_proxy": false
+    },
+    {
+      "type": "tproxy",
+      "tag": "tproxy-in",
+      "listen": "::",
+      "listen_port": 7891
+    },
+    {
+      "type": "socks",
+      "tag": "socks-in",
+      "listen": "::",
+      "listen_port": 7895
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "direct",
+      "tag": "DIRECT"
+    },
+    {
+      "tag": "🚀 节点选择",
+      "type": "selector",
+      "outbounds": [
+        "♻️ 自动选择",
+        "🇭🇰 香港节点",
+        "🇯🇵 日本节点",
+        "🇺🇲 美国节点",
+        "🇸🇬 狮城节点",
+        "GLOBAL"
+      ]
+    },
+    {
+      "tag": "🅖  Google",
+      "type": "selector",
+      "outbounds": [
+        "♻️ 自动选择",
+        "🇭🇰 香港节点",
+        "🇯🇵 日本节点",
+        "🇺🇲 美国节点",
+        "🇸🇬 狮城节点",
+        "GLOBAL"
+      ]
+    },
+    {
+      "tag": "🔮 AI",
+      "type": "selector",
+      "outbounds": [
+        "♻️ 自动选择",
+        "🇭🇰 香港节点",
+        "🇯🇵 日本节点",
+        "🇺🇲 美国节点",
+        "🇸🇬 狮城节点",
+        "GLOBAL"
+      ]
+    },
+    {
+      "tag": "♻️ 自动选择",
+      "type": "urltest",
+      "outbounds": [
+        "{all}"
+      ],
+      "filter": [
+        {
+          "action": "exclude",
+          "keywords": [
+            "解锁|失联|订阅|频道|网址|流量|重置|到期|过期|套餐"
+          ]
+        }
+      ]
+    },
+    {
+      "tag": "🇭🇰 香港节点",
+      "type": "urltest",
+      "outbounds": [
+        "{all}"
+      ],
+      "filter": [
+        {
+          "action": "include",
+          "keywords": [
+            "🇭🇰|HK|hk|香港|港|Hong Kong|HKG"
+          ]
+        }
+      ]
+    },
+    {
+      "tag": "🇯🇵 日本节点",
+      "type": "urltest",
+      "outbounds": [
+        "{all}"
+      ],
+      "filter": [
+        {
+          "action": "include",
+          "keywords": [
+            "🇯🇵|JP|jp|日本|日|Japan|KIX|NRT"
+          ]
+        }
+      ]
+    },
+    {
+      "tag": "🇺🇲 美国节点",
+      "type": "urltest",
+      "outbounds": [
+        "{all}"
+      ],
+      "filter": [
+        {
+          "action": "include",
+          "keywords": [
+            "🇺🇸|US|us|美国|美|United States|SJC|LAX"
+          ]
+        },
+        {
+          "action": "exclude",
+          "keywords": [
+            "频道"
+          ]
+        }
+      ]
+    },
+    {
+      "tag": "🇸🇬 狮城节点",
+      "type": "urltest",
+      "outbounds": [
+        "{all}"
+      ],
+      "filter": [
+        {
+          "action": "include",
+          "keywords": [
+            "🇸🇬|SG|sg|新加坡|狮|Singapore|SIN"
+          ]
+        }
+      ]
+    },
+    {
+      "tag": "GLOBAL",
+      "type": "selector",
+      "outbounds": [
+        "{all}"
+      ]
+    }
+  ],
+  "route": {
+    "default_domain_resolver": {
+      "server": "dns_direct",
+      "rewrite_ttl": 60,
+      "client_subnet": "114.114.114.0/24"
+    },
+    "rules": [
+      {
+        "action": "sniff"
+      },
+      {
+        "type": "logical",
+        "mode": "or",
+        "rules": [
+          {
+            "port": [
+              53,
+              853,
+              5353
+            ]
+          },
+          {
+            "protocol": "dns"
+          }
+        ],
+        "action": "hijack-dns"
+      },
+      {
+        "rule_set": [
+          "inline-direct-port"
+        ],
+        "outbound": "DIRECT"
+      },
+      {
+        "ip_is_private": true,
+        "outbound": "DIRECT"
+      },
+      {
+        "rule_set": [
+          "inline-reject",
+          "geosite-anti-ad",
+          "geosite-adguard",
+          "geosite-category-ads-all"
+        ],
+        "action": "reject"
+      },
+      {
+        "clash_mode": "direct",
+        "outbound": "DIRECT"
+      },
+      {
+        "clash_mode": "global",
+        "outbound": "GLOBAL"
+      },
+      {
+        "rule_set": [
+          "inline-google",
+          "geoip-google",
+          "geosite-google"
+        ],
+        "outbound": "🅖  Google"
+      },
+      {
+        "rule_set": [
+          "inline-ai",
+          "geosite-openai"
+        ],
+        "outbound": "🔮 AI"
+      },
+      {
+        "rule_set": [
+          "inline-proxy",
+          "geosite-geolocation-!cn"
+        ],
+        "outbound": "🚀 节点选择"
+      },
+      {
+        "rule_set": [
+          "inline-cn",
+          "inline-direct-ip",
+          "geoip-cn",
+          "geosite-geolocation-cn"
+        ],
+        "outbound": "DIRECT"
+      }
+    ],
+    "rule_set": [
+      {
+        "tag": "inline-direct-ip",
+        "type": "inline",
+        "rules": [
+          {
+            "ip_cidr": [
+              "0.0.0.0/8",
+              "10.0.0.0/8",
+              "100.64.0.0/10",
+              "127.0.0.0/8",
+              "172.16.0.0/12",
+              "192.168.0.0/16",
+              "198.18.0.0/16"
+            ]
+          }
+        ]
+      },
+      {
+        "tag": "inline-direct-port",
+        "type": "inline",
+        "rules": [
+          {
+            "port": [
+              22,
+              25,
+              465,
+              587
+            ]
+          }
+        ]
+      },
+      {
+        "tag": "inline-reject",
+        "type": "inline",
+        "rules": [
+          {
+            "ip_cidr": [
+              "224.0.0.0/3",
+              "ff00::/8"
+            ]
+          }
+        ]
+      },
+      {
+        "tag": "inline-cn",
+        "type": "inline",
+        "rules": [
+          {
+            "domain_suffix": [
+              "qq.com",
+              "aicoding.sh",
+              "wukaige.com",
+              "googleapis.cn",
+              "cloudfront.net"
+            ]
+          }
+        ]
+      },
+      {
+        "tag": "inline-proxy",
+        "type": "inline",
+        "rules": [
+          {
+            "domain_suffix": [
+              "docker.io",
+              "okx.com"
+            ]
+          }
+        ]
+      },
+      {
+        "tag": "inline-google",
+        "type": "inline",
+        "rules": [
+          {
+            "domain_suffix": [
+              "gstatic.com"
+            ]
+          },
+          {
+            "package_name": [
+              "com.android.vending",
+              "com.google.uid.shared",
+              "com.google.android.gm",
+              "com.google.android.gms",
+              "com.google.android.gsf",
+              "com.google.android.youtube",
+              "com.google.android.webview",
+              "com.google.android.apps.youtube.music",
+              "com.google.android.apps.googlevoice",
+              "com.google.android.apps.authenticator2",
+              "com.google.android.googlequicksearchbox",
+              "com.google.android.inputmethod.latin"
+            ]
+          }
+        ]
+      },
+      {
+        "tag": "inline-ai",
+        "type": "inline",
+        "rules": [
+          {
+            "domain_suffix": [
+              "auth0.com",
+              "challenges.cloudflare.com",
+              "chatgpt.com",
+              "client-api.arkoselabs.com",
+              "events.statsigapi.net",
+              "featuregates.org",
+              "identrust.com",
+              "intercom.io",
+              "intercomcdn.com",
+              "oaistatic.com",
+              "oaiusercontent.com",
+              "openai.com",
+              "openaiapi-site.azureedge.net",
+              "sentry.io",
+              "stripe.com",
+              "gemini.google.com",
+              "generativelanguage.googleapis.com",
+              "claude.ai",
+              "anthropic.com"
+            ]
+          },
+          {
+            "package_name": [
+              "com.openai.chatgpt",
+              "com.anthropic.claude",
+              "com.google.android.apps.bard"
+            ]
+          }
+        ]
+      },
+      {
+        "tag": "geoip-cn",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cfproxy.wukaige.com/https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo-lite/geoip/cn.srs",
+        "download_detour": "🚀 节点选择"
+      },
+      {
+        "tag": "geosite-openai",
+        "type": "remote",
+        "format": "source",
+        "url": "https://cfproxy.wukaige.com/https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo-lite/geosite/openai.json",
+        "download_detour": "🚀 节点选择"
+      },
+      {
+        "tag": "geoip-google",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cfproxy.wukaige.com/https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo-lite/geoip/google.srs",
+        "download_detour": "🚀 节点选择"
+      },
+      {
+        "tag": "geosite-google",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cfproxy.wukaige.com/https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo-lite/geosite/google.srs",
+        "download_detour": "🚀 节点选择"
+      },
+      {
+        "tag": "geosite-anti-ad",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cfproxy.wukaige.com/https://anti-ad.net/anti-ad-sing-box.srs",
+        "download_detour": "🚀 节点选择"
+      },
+      {
+        "tag": "geosite-adguard",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cfproxy.wukaige.com/https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-adguard.srs",
+        "download_detour": "🚀 节点选择"
+      },
+      {
+        "tag": "geosite-category-ads-all",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cfproxy.wukaige.com/https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo/geosite/category-ads-all.srs",
+        "download_detour": "🚀 节点选择"
+      },
+      {
+        "tag": "geosite-geolocation-cn",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cfproxy.wukaige.com/https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-geolocation-cn.srs",
+        "download_detour": "🚀 节点选择"
+      },
+      {
+        "tag": "geosite-geolocation-!cn",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cfproxy.wukaige.com/https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-geolocation-!cn.srs",
+        "download_detour": "🚀 节点选择"
+      }
+    ],
+    "auto_detect_interface": true,
+    "final": "🚀 节点选择"
+  }
+}
