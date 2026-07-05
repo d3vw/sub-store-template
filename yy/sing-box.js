@@ -15,27 +15,32 @@ let proxies = await produceArtifact({
 
 config.outbounds.push(...proxies)
 
+const auto_exclude_keywords = /解锁|失联|订阅|频道|网址|流量|重置|到期|过期|套餐/i
+
 config.outbounds.map(i => {
   // Populate feature selectors with proxies
-  if (['proxy', 'google', 'claude', 'polymarket', 'youtube', 'ai'].includes(i.tag)) {
+  if (['proxy', 'google', 'claude', 'polymarket', 'youtube', 'ai', '🚀 节点选择', '🅖  Google', '🔮 AI'].includes(i.tag)) {
     i.outbounds.push(...getTags(proxies, /feat/i))
   }
-  if (['all', 'all-auto'].includes(i.tag)) {
+  if (['all', 'all-auto', 'GLOBAL'].includes(i.tag)) {
     i.outbounds.push(...getTags(proxies))
   }
-  if (['hk', 'hk-auto'].includes(i.tag)) {
+  if (i.tag === '♻️ 自动选择') {
+    i.outbounds.push(...getTags(proxies).filter(tag => !auto_exclude_keywords.test(tag)))
+  }
+  if (['hk', 'hk-auto', '🇭🇰 香港节点'].includes(i.tag)) {
     i.outbounds.push(...getTags(proxies, /港|hk|hongkong|kong kong|🇭🇰/i))
   }
   if (['tw', 'tw-auto'].includes(i.tag)) {
     i.outbounds.push(...getTags(proxies, /台|tw|taiwan|🇹🇼/i))
   }
-  if (['jp', 'jp-auto'].includes(i.tag)) {
+  if (['jp', 'jp-auto', '🇯🇵 日本节点'].includes(i.tag)) {
     i.outbounds.push(...getTags(proxies, /日本|jp|japan|🇯🇵/i))
   }
-  if (['sg', 'sg-auto'].includes(i.tag)) {
+  if (['sg', 'sg-auto', '🇸🇬 狮城节点'].includes(i.tag)) {
     i.outbounds.push(...getTags(proxies, /^(?!.*(?:us)).*(新|sg|singapore|🇸🇬)/i))
   }
-  if (['us', 'us-auto'].includes(i.tag)) {
+  if (['us', 'us-auto', '🇺🇲 美国节点'].includes(i.tag)) {
     i.outbounds.push(...getTags(proxies, /美|us|unitedstates|united states|🇺🇸/i))
   }
 })

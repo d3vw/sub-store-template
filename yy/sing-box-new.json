@@ -184,90 +184,32 @@
     {
       "tag": "♻️ 自动选择",
       "type": "urltest",
-      "outbounds": [
-        "{all}"
-      ],
-      "filter": [
-        {
-          "action": "exclude",
-          "keywords": [
-            "解锁|失联|订阅|频道|网址|流量|重置|到期|过期|套餐"
-          ]
-        }
-      ]
+      "outbounds": []
     },
     {
       "tag": "🇭🇰 香港节点",
       "type": "urltest",
-      "outbounds": [
-        "{all}"
-      ],
-      "filter": [
-        {
-          "action": "include",
-          "keywords": [
-            "🇭🇰|HK|hk|香港|港|Hong Kong|HKG"
-          ]
-        }
-      ]
+      "outbounds": []
     },
     {
       "tag": "🇯🇵 日本节点",
       "type": "urltest",
-      "outbounds": [
-        "{all}"
-      ],
-      "filter": [
-        {
-          "action": "include",
-          "keywords": [
-            "🇯🇵|JP|jp|日本|日|Japan|KIX|NRT"
-          ]
-        }
-      ]
+      "outbounds": []
     },
     {
       "tag": "🇺🇲 美国节点",
       "type": "urltest",
-      "outbounds": [
-        "{all}"
-      ],
-      "filter": [
-        {
-          "action": "include",
-          "keywords": [
-            "🇺🇸|US|us|美国|美|United States|SJC|LAX"
-          ]
-        },
-        {
-          "action": "exclude",
-          "keywords": [
-            "频道"
-          ]
-        }
-      ]
+      "outbounds": []
     },
     {
       "tag": "🇸🇬 狮城节点",
       "type": "urltest",
-      "outbounds": [
-        "{all}"
-      ],
-      "filter": [
-        {
-          "action": "include",
-          "keywords": [
-            "🇸🇬|SG|sg|新加坡|狮|Singapore|SIN"
-          ]
-        }
-      ]
+      "outbounds": []
     },
     {
       "tag": "GLOBAL",
       "type": "selector",
-      "outbounds": [
-        "{all}"
-      ]
+      "outbounds": []
     }
   ],
   "route": {
