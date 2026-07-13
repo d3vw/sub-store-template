@@ -13,7 +13,15 @@ let proxies = await produceArtifact({
   produceType: 'internal',
 })
 
-config.outbounds.push(...proxies)
+// sing-box requires wireguard/tailscale to live in top-level `endpoints`, not `outbounds`
+const endpoint_types = ['wireguard', 'tailscale']
+const endpoints = proxies.filter(p => endpoint_types.includes(p.type))
+const outbounds = proxies.filter(p => !endpoint_types.includes(p.type))
+
+config.outbounds.push(...outbounds)
+if (endpoints.length > 0) {
+  config.endpoints = [...(config.endpoints ?? []), ...endpoints]
+}
 
 const auto_exclude_keywords = /解锁|失联|订阅|频道|网址|流量|重置|到期|过期|套餐/i
 
