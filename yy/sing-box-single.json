@@ -35,10 +35,7 @@
         "action": "reject"
       },
       {
-        "query_type": [
-          "A",
-          "AAAA"
-        ],
+        "query_type": ["A", "AAAA"],
         "action": "route",
         "server": "fakeip",
         "rewrite_ttl": 1
@@ -58,13 +55,7 @@
     "rules": [
       {
         "action": "sniff",
-        "sniffer": [
-          "http",
-          "tls",
-          "quic",
-          "ssh",
-          "dns"
-        ],
+        "sniffer": ["http", "tls", "quic", "ssh", "dns"],
         "timeout": "500ms"
       },
       {
@@ -115,10 +106,7 @@
         "action": "resolve"
       },
       {
-        "rule_set": [
-          "cn_ip",
-          "cn_domain"
-        ],
+        "rule_set": ["cn_ip", "cn_domain"],
         "action": "route",
         "outbound": "cn"
       }
@@ -156,44 +144,30 @@
     {
       "tag": "proxy",
       "type": "selector",
-      "outbounds": [
-        "direct"
-      ]
+      "outbounds": ["direct"]
     },
     {
       "tag": "cn",
       "type": "selector",
-      "outbounds": [
-        "proxy",
-        "direct"
-      ],
+      "outbounds": ["proxy", "direct"],
       "default": "direct"
     },
     {
       "tag": "microsoft",
       "type": "selector",
-      "outbounds": [
-        "proxy",
-        "direct"
-      ],
+      "outbounds": ["proxy", "direct"],
       "default": "proxy"
     },
     {
       "tag": "final",
       "type": "selector",
-      "outbounds": [
-        "proxy",
-        "direct"
-      ],
+      "outbounds": ["proxy", "direct"],
       "default": "proxy"
     },
     {
       "tag": "GLOBAL",
       "type": "selector",
-      "outbounds": [
-        "direct",
-        "proxy"
-      ],
+      "outbounds": ["direct", "proxy"],
       "default": "direct"
     },
     {
@@ -204,11 +178,7 @@
   "inbounds": [
     {
       "type": "tun",
-      "address": [
-        "172.19.0.0/30",
-        "fdfe:dcba:9876::0/126"
-      ],
-      "stack": "mixed",
+      "address": ["172.19.0.0/30", "fdfe:dcba:9876::0/126"],
       "auto_route": true,
       "platform": {
         "http_proxy": {

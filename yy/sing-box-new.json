@@ -51,10 +51,7 @@
       {
         "tag": "hosts",
         "type": "hosts",
-        "path": [
-          "/etc/hosts",
-          "$HOME/.hosts"
-        ]
+        "path": ["/etc/hosts", "$HOME/.hosts"]
       }
     ],
     "rules": [
@@ -71,18 +68,12 @@
         "server": "dns_proxy"
       },
       {
-        "rule_set": [
-          "geosite-anti-ad",
-          "geosite-adguard",
-          "geosite-category-ads-all"
-        ],
+        "rule_set": ["geosite-anti-ad", "geosite-adguard", "geosite-category-ads-all"],
         "action": "predefined",
         "rcode": "REFUSED"
       },
       {
-        "rule_set": [
-          "geosite-geolocation-cn"
-        ],
+        "rule_set": ["geosite-geolocation-cn"],
         "server": "dns_direct"
       }
     ],
@@ -97,23 +88,13 @@
       "type": "tun",
       "tag": "tun-in",
       "interface_name": "utun",
-      "address": [
-        "172.18.0.1/30"
-      ],
-      "stack": "system",
+      "address": ["172.18.0.1/30"],
       "auto_route": true,
       "strict_route": true,
       "endpoint_independent_nat": true,
-      "route_address": [
-        "0.0.0.0/1",
-        "128.0.0.0/1"
-      ],
-      "route_exclude_address": [
-        "192.168.0.0/16"
-      ],
-      "route_exclude_address_set": [
-        "inline-direct-ip"
-      ]
+      "route_address": ["0.0.0.0/1", "128.0.0.0/1"],
+      "route_exclude_address": ["192.168.0.0/16"],
+      "route_exclude_address_set": ["inline-direct-ip"]
     },
     {
       "type": "mixed",
@@ -216,11 +197,7 @@
         "mode": "or",
         "rules": [
           {
-            "port": [
-              53,
-              853,
-              5353
-            ]
+            "port": [53, 853, 5353]
           },
           {
             "protocol": "dns"
@@ -229,9 +206,7 @@
         "action": "hijack-dns"
       },
       {
-        "rule_set": [
-          "inline-direct-port"
-        ],
+        "rule_set": ["inline-direct-port"],
         "outbound": "DIRECT"
       },
       {
@@ -256,34 +231,19 @@
         "outbound": "GLOBAL"
       },
       {
-        "rule_set": [
-          "inline-google",
-          "geoip-google",
-          "geosite-google"
-        ],
+        "rule_set": ["inline-google", "geoip-google", "geosite-google"],
         "outbound": "🅖  Google"
       },
       {
-        "rule_set": [
-          "inline-ai",
-          "geosite-openai"
-        ],
+        "rule_set": ["inline-ai", "geosite-openai"],
         "outbound": "🔮 AI"
       },
       {
-        "rule_set": [
-          "inline-proxy",
-          "geosite-geolocation-!cn"
-        ],
+        "rule_set": ["inline-proxy", "geosite-geolocation-!cn"],
         "outbound": "🚀 节点选择"
       },
       {
-        "rule_set": [
-          "inline-cn",
-          "inline-direct-ip",
-          "geoip-cn",
-          "geosite-geolocation-cn"
-        ],
+        "rule_set": ["inline-cn", "inline-direct-ip", "geoip-cn", "geosite-geolocation-cn"],
         "outbound": "DIRECT"
       }
     ],
@@ -310,12 +270,7 @@
         "type": "inline",
         "rules": [
           {
-            "port": [
-              22,
-              25,
-              465,
-              587
-            ]
+            "port": [22, 25, 465, 587]
           }
         ]
       },
@@ -324,10 +279,7 @@
         "type": "inline",
         "rules": [
           {
-            "ip_cidr": [
-              "224.0.0.0/3",
-              "ff00::/8"
-            ]
+            "ip_cidr": ["224.0.0.0/3", "ff00::/8"]
           }
         ]
       },
@@ -351,10 +303,7 @@
         "type": "inline",
         "rules": [
           {
-            "domain_suffix": [
-              "docker.io",
-              "okx.com"
-            ]
+            "domain_suffix": ["docker.io", "okx.com"]
           }
         ]
       },
@@ -363,9 +312,7 @@
         "type": "inline",
         "rules": [
           {
-            "domain_suffix": [
-              "gstatic.com"
-            ]
+            "domain_suffix": ["gstatic.com"]
           },
           {
             "package_name": [

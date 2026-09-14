@@ -34,11 +34,7 @@
         "action": "reject"
       },
       {
-        "domain_suffix": [
-          "cloudflare.com",
-          "cloudflarestream.com",
-          "cloudflarestorage.com"
-        ],
+        "domain_suffix": ["cloudflare.com", "cloudflarestream.com", "cloudflarestorage.com"],
         "action": "route",
         "server": "google"
       },
@@ -63,12 +59,7 @@
     "rules": [
       {
         "action": "sniff",
-        "sniffer": [
-          "http",
-          "tls",
-          "quic",
-          "dns"
-        ],
+        "sniffer": ["http", "tls", "quic", "dns"],
         "timeout": "500ms"
       },
       {
@@ -90,9 +81,7 @@
         "outbound": "direct"
       },
       {
-        "ip_cidr": [
-          "5.5.5.5/32"
-        ],
+        "ip_cidr": ["5.5.5.5/32"],
         "outbound": "dashboard-portal"
       },
       {
@@ -106,16 +95,11 @@
         "outbound": "direct"
       },
       {
-        "process_path": [
-          "/usr/local/bin/naive",
-          "/usr/bin/naiveproxy"
-        ],
+        "process_path": ["/usr/local/bin/naive", "/usr/bin/naiveproxy"],
         "outbound": "direct"
       },
       {
-        "process_name": [
-          "naive"
-        ],
+        "process_name": ["naive"],
         "outbound": "direct"
       },
       {
@@ -152,12 +136,7 @@
           },
           {
             "invert": true,
-            "rule_set": [
-              "cn_domain",
-              "google_domain",
-              "telegram_domain",
-              "microsoft_domain"
-            ]
+            "rule_set": ["cn_domain", "google_domain", "telegram_domain", "microsoft_domain"]
           }
         ],
         "action": "route",
@@ -167,27 +146,17 @@
         "action": "resolve"
       },
       {
-        "rule_set": [
-          "telegram_ip",
-          "telegram_domain"
-        ],
+        "rule_set": ["telegram_ip", "telegram_domain"],
         "action": "route",
         "outbound": "telegram"
       },
       {
-        "rule_set": [
-          "google_ip",
-          "google_domain"
-        ],
+        "rule_set": ["google_ip", "google_domain"],
         "action": "route",
         "outbound": "google"
       },
       {
-        "rule_set": [
-          "cn_ip",
-          "cn_domain",
-          "cn_custom_domain"
-        ],
+        "rule_set": ["cn_ip", "cn_domain", "cn_custom_domain"],
         "action": "route",
         "outbound": "cn"
       }
@@ -216,12 +185,7 @@
         "type": "inline",
         "rules": [
           {
-            "domain_suffix": [
-              "youpin898.com",
-              "uu898.cc",
-              "youpinimg.com",
-              "uu661.com"
-            ]
+            "domain_suffix": ["youpin898.com", "uu898.cc", "youpinimg.com", "uu661.com"]
           }
         ]
       },
@@ -230,9 +194,7 @@
         "type": "inline",
         "rules": [
           {
-            "domain_suffix": [
-              "polymarket.com"
-            ]
+            "domain_suffix": ["polymarket.com"]
           }
         ]
       },
@@ -329,22 +291,13 @@
     {
       "tag": "claude",
       "type": "selector",
-      "outbounds": [
-        "proxy",
-        "jp",
-        "us"
-      ],
+      "outbounds": ["proxy", "jp", "us"],
       "default": "proxy"
     },
     {
       "tag": "polymarket",
       "type": "selector",
-      "outbounds": [
-        "proxy",
-        "us",
-        "us-auto",
-        "direct"
-      ],
+      "outbounds": ["proxy", "us", "us-auto", "direct"],
       "default": "proxy"
     },
     {
@@ -484,9 +437,7 @@
     {
       "tag": "all",
       "type": "selector",
-      "outbounds": [
-        "direct"
-      ]
+      "outbounds": ["direct"]
     },
     {
       "tag": "hk-auto",
@@ -560,7 +511,6 @@
     {
       "type": "tun",
       "address": "172.19.0.0/30",
-      "stack": "mixed",
       "auto_route": true,
       "platform": {
         "http_proxy": {
