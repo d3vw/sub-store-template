@@ -30,6 +30,10 @@
         "server": "fakeip"
       },
       {
+        "rule_set": "ads_domain",
+        "action": "reject"
+      },
+      {
         "query_type": "HTTPS",
         "action": "reject"
       },
@@ -74,6 +78,10 @@
           }
         ],
         "action": "hijack-dns"
+      },
+      {
+        "rule_set": "ads_domain",
+        "action": "reject"
       },
       {
         "ip_is_private": true,
@@ -162,6 +170,12 @@
       }
     ],
     "rule_set": [
+      {
+        "tag": "ads_domain",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://ghfast.top/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo/geosite/category-ads-all.srs"
+      },
       {
         "tag": "claude_domain",
         "type": "remote",
