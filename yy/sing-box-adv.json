@@ -111,6 +111,11 @@
         "outbound": "direct"
       },
       {
+        "process_name": ["iperf3"],
+        "action": "route",
+        "outbound": "direct"
+      },
+      {
         "rule_set": "youtube_domain",
         "action": "route",
         "outbound": "youtube"
