@@ -13,7 +13,7 @@
     "clash_api": {
       "external_controller": "127.0.0.1:9090",
       "external_ui": "ui",
-      "external_ui_download_url": "https://cfproxy.wukaige.com/https://github.com/MetaCubeX/Yacd-meta/archive/gh-pages.zip",
+      "external_ui_download_url": "https://github.com/MetaCubeX/Yacd-meta/archive/gh-pages.zip",
       "external_ui_download_detour": "🚀 节点选择",
       "default_mode": "rule"
     }
@@ -80,7 +80,6 @@
     "final": "dns_proxy",
     "strategy": "ipv4_only",
     "disable_expire": false,
-    "independent_cache": true,
     "client_subnet": "223.5.5.0/24"
   },
   "inbounds": [
@@ -182,7 +181,14 @@
       "outbounds": []
     }
   ],
+  "http_clients": [
+    {
+      "tag": "proxy_http",
+      "detour": "🚀 节点选择"
+    }
+  ],
   "route": {
+    "default_http_client": "proxy_http",
     "default_domain_resolver": {
       "server": "dns_direct",
       "rewrite_ttl": 60,
@@ -373,64 +379,64 @@
         "tag": "geoip-cn",
         "type": "remote",
         "format": "binary",
-        "url": "https://cfproxy.wukaige.com/https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo-lite/geoip/cn.srs",
-        "download_detour": "🚀 节点选择"
+        "url": "https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo-lite/geoip/cn.srs",
+        "http_client": "proxy_http"
       },
       {
         "tag": "geosite-openai",
         "type": "remote",
         "format": "source",
-        "url": "https://cfproxy.wukaige.com/https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo-lite/geosite/openai.json",
-        "download_detour": "🚀 节点选择"
+        "url": "https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo-lite/geosite/openai.json",
+        "http_client": "proxy_http"
       },
       {
         "tag": "geoip-google",
         "type": "remote",
         "format": "binary",
-        "url": "https://cfproxy.wukaige.com/https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo-lite/geoip/google.srs",
-        "download_detour": "🚀 节点选择"
+        "url": "https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo-lite/geoip/google.srs",
+        "http_client": "proxy_http"
       },
       {
         "tag": "geosite-google",
         "type": "remote",
         "format": "binary",
-        "url": "https://cfproxy.wukaige.com/https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo-lite/geosite/google.srs",
-        "download_detour": "🚀 节点选择"
+        "url": "https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo-lite/geosite/google.srs",
+        "http_client": "proxy_http"
       },
       {
         "tag": "geosite-anti-ad",
         "type": "remote",
         "format": "binary",
-        "url": "https://cfproxy.wukaige.com/https://anti-ad.net/anti-ad-sing-box.srs",
-        "download_detour": "🚀 节点选择"
+        "url": "https://anti-ad.net/anti-ad-sing-box.srs",
+        "http_client": "proxy_http"
       },
       {
         "tag": "geosite-adguard",
         "type": "remote",
         "format": "binary",
-        "url": "https://cfproxy.wukaige.com/https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-adguard.srs",
-        "download_detour": "🚀 节点选择"
+        "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-adguard.srs",
+        "http_client": "proxy_http"
       },
       {
         "tag": "geosite-category-ads-all",
         "type": "remote",
         "format": "binary",
-        "url": "https://cfproxy.wukaige.com/https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo/geosite/category-ads-all.srs",
-        "download_detour": "🚀 节点选择"
+        "url": "https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo/geosite/category-ads-all.srs",
+        "http_client": "proxy_http"
       },
       {
         "tag": "geosite-geolocation-cn",
         "type": "remote",
         "format": "binary",
-        "url": "https://cfproxy.wukaige.com/https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-geolocation-cn.srs",
-        "download_detour": "🚀 节点选择"
+        "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-geolocation-cn.srs",
+        "http_client": "proxy_http"
       },
       {
         "tag": "geosite-geolocation-!cn",
         "type": "remote",
         "format": "binary",
-        "url": "https://cfproxy.wukaige.com/https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-geolocation-!cn.srs",
-        "download_detour": "🚀 节点选择"
+        "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-geolocation-!cn.srs",
+        "http_client": "proxy_http"
       }
     ],
     "auto_detect_interface": true,

@@ -116,28 +116,33 @@
         "tag": "cn_ip",
         "type": "remote",
         "format": "binary",
+        "http_client": "proxy_http",
         "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo/geoip/cn.srs"
       },
       {
         "tag": "cn_domain",
         "type": "remote",
         "format": "binary",
+        "http_client": "proxy_http",
         "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo-lite/geosite/cn.srs"
       },
       {
         "tag": "microsoft_domain",
         "type": "remote",
         "format": "binary",
+        "http_client": "proxy_http",
         "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo-lite/geosite/microsoft.srs"
       },
       {
         "tag": "proxy_domain",
         "type": "remote",
         "format": "binary",
+        "http_client": "proxy_http",
         "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/sing/geo/geosite/geolocation-!cn.srs"
       }
     ],
     "final": "final",
+    "default_http_client": "proxy_http",
     "auto_detect_interface": true
   },
   "outbounds": [
