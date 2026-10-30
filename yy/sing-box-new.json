@@ -78,7 +78,7 @@
       }
     ],
     "final": "dns_proxy",
-    "strategy": "ipv4_only",
+    "strategy": "prefer_ipv4",
     "disable_expire": false,
     "client_subnet": "223.5.5.0/24"
   },
@@ -87,11 +87,11 @@
       "type": "tun",
       "tag": "tun-in",
       "interface_name": "utun",
-      "address": ["172.18.0.1/30"],
+      "address": ["172.18.0.1/30", "fdfe:dcba:9876::1/126"],
       "auto_route": true,
       "strict_route": true,
       "endpoint_independent_nat": true,
-      "route_address": ["0.0.0.0/1", "128.0.0.0/1"],
+      "route_address": ["0.0.0.0/1", "128.0.0.0/1", "::/1", "8000::/1"],
       "route_exclude_address": ["192.168.0.0/16"],
       "route_exclude_address_set": ["inline-direct-ip"]
     },
