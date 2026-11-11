@@ -15,7 +15,8 @@
       {
         "tag": "fakeip",
         "type": "fakeip",
-        "inet4_range": "198.18.0.0/15"
+        "inet4_range": "198.18.0.0/15",
+        "inet6_range": "fc00::/18"
       }
     ],
     "rules": [
@@ -39,7 +40,7 @@
         "server": "google"
       },
       {
-        "query_type": "A",
+        "query_type": ["A", "AAAA"],
         "action": "route",
         "server": "fakeip",
         "rewrite_ttl": 1
