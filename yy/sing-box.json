@@ -254,6 +254,7 @@
       }
     ],
     "final": "final",
+    "default_http_client": "proxy_http",
     "auto_detect_interface": true
   },
   "outbounds": [
@@ -514,6 +515,7 @@
       "type": "tun",
       "address": ["172.19.0.0/30", "fdfe:dcba:9876::0/126"],
       "auto_route": true,
+      "auto_redirect": true,
       "platform": {
         "http_proxy": {
           "enabled": true,
